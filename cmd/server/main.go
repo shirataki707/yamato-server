@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"yamato/internal/domain"
 	"yamato/internal/interface/handler"
 	"yamato/internal/interface/router"
 	"yamato/internal/repository"
@@ -12,21 +11,12 @@ import (
 	"gorm.io/gorm"
 )
 
-func autoMigrate(db *gorm.DB) {
-	err := db.AutoMigrate(&domain.Mountain{})
-	if err != nil {
-		log.Fatalf("Failed to migrate database: %v", err)
-	}
-
-}
-
 func main() {
-	dsn := "user:password@tcp(localhost:3306)/hyakumeizan?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "user:password@tcp(db:3306)/hyakumeizan?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
-	autoMigrate(db)
 
 	mountainRepo := repository.NewMountainRepository(db)
 	mountainUseCase := usecase.NewMountainUseCase(mountainRepo)

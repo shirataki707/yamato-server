@@ -14,7 +14,6 @@ type Mountain struct {
 	Prefectures      string  `json:"prefectures"`
 	IsClimbed        bool    `json:"is_climbed"`
 	Schedule         string  `json:"schedule"`
-	BestSeason       string  `json:"best_season"`
 	PhysicalStrength string  `json:"physical_strength"`
 	Difficulty       string  `json:"difficulty"`
 }

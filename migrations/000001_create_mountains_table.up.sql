@@ -12,7 +12,6 @@ CREATE TABLE mountains (
     prefectures VARCHAR(255) NOT NULL,
     is_climbed BOOLEAN DEFAULT FALSE NOT NULL,
 	schedule VARCHAR(255)  NOT NULL,
-	best_season VARCHAR(255)  NOT NULL,
 	physical_strength INT  NOT NULL,
 	difficulty INT  NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
